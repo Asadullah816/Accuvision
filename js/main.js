@@ -18,41 +18,76 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // 2. MOBILE NAVIGATION DRAWER
-  const mobileToggle = document.querySelector('.mobile-toggle');
-  const mobileDrawer = document.querySelector('.mobile-nav-drawer');
-  const mobileClose = document.querySelector('.mobile-close-btn');
+  // 2. WORDPRESS / ELEMENTOR MOBILE MENU TOGGLE & ACCORDION
+  const menuToggle = document.getElementById('elementor-menu-toggle') || document.querySelector('.elementor-menu-toggle') || document.querySelector('.mobile-toggle');
+  const dropdownMenu = document.getElementById('elementor-nav-menu-mobile') || document.querySelector('.elementor-nav-menu--dropdown') || document.querySelector('.mobile-nav-drawer');
 
-  if (mobileToggle && mobileDrawer) {
-    mobileToggle.addEventListener('click', function () {
-      mobileDrawer.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    });
-
-    if (mobileClose) {
-      mobileClose.addEventListener('click', function () {
-        mobileDrawer.classList.remove('open');
-        document.body.style.overflow = '';
-      });
+  if (menuToggle && dropdownMenu) {
+    function toggleMobileMenu(e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      const isExpanded = menuToggle.classList.contains('elementor-active') || dropdownMenu.classList.contains('elementor-active');
+      if (isExpanded) {
+        menuToggle.classList.remove('elementor-active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        dropdownMenu.classList.remove('elementor-active');
+        dropdownMenu.setAttribute('aria-hidden', 'true');
+      } else {
+        menuToggle.classList.add('elementor-active');
+        menuToggle.setAttribute('aria-expanded', 'true');
+        dropdownMenu.classList.add('elementor-active');
+        dropdownMenu.setAttribute('aria-hidden', 'false');
+      }
     }
 
-    mobileDrawer.addEventListener('click', function (e) {
-      if (e.target === mobileDrawer) {
-        mobileDrawer.classList.remove('open');
-        document.body.style.overflow = '';
+    menuToggle.addEventListener('click', toggleMobileMenu);
+
+    // Submenu accordion toggles (Elementor / WordPress style)
+    const subMenuTriggers = dropdownMenu.querySelectorAll('.sub-arrow, .menu-item-has-children > .elementor-item-wrapper > a');
+    subMenuTriggers.forEach(function (trigger) {
+      trigger.addEventListener('click', function (e) {
+        const parentLi = this.closest('.menu-item-has-children');
+        if (parentLi) {
+          e.preventDefault();
+          e.stopPropagation();
+          const wasActive = parentLi.classList.contains('active');
+
+          // Collapse sibling submenus
+          dropdownMenu.querySelectorAll('.menu-item-has-children').forEach(function (li) {
+            if (li !== parentLi) {
+              li.classList.remove('active');
+            }
+          });
+
+          if (!wasActive) {
+            parentLi.classList.add('active');
+          } else {
+            parentLi.classList.remove('active');
+          }
+        }
+      });
+    });
+
+    // Close menu when clicking outside header
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.site-header')) {
+        menuToggle.classList.remove('elementor-active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        dropdownMenu.classList.remove('elementor-active');
+        dropdownMenu.setAttribute('aria-hidden', 'true');
       }
     });
 
-    // Submenu toggle inside mobile drawer
-    const mobileSubmenuToggles = document.querySelectorAll('.mobile-has-submenu > a');
-    mobileSubmenuToggles.forEach(function (toggle) {
-      toggle.addEventListener('click', function (e) {
-        e.preventDefault();
-        const submenu = this.nextElementSibling;
-        if (submenu) {
-          submenu.classList.toggle('open');
-        }
-      });
+    // Close on Escape key
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        menuToggle.classList.remove('elementor-active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        dropdownMenu.classList.remove('elementor-active');
+        dropdownMenu.setAttribute('aria-hidden', 'true');
+      }
     });
   }
 

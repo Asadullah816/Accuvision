@@ -428,114 +428,224 @@ li {
   margin-left: 16px;
 }
 
-/* Mobile Toggle Hamburger */
+/* ==========================================================================
+   WORDPRESS / ELEMENTOR MOBILE MENU & TOGGLE
+   ========================================================================== */
+
+/* Toggle Button (Elementor Nav Menu Widget Compatible) */
+.elementor-menu-toggle,
 .mobile-toggle {
   display: none;
-  background: none;
+  background: transparent;
   border: none;
   cursor: pointer;
   padding: 8px;
   color: var(--primary-color);
-}
-
-.mobile-toggle svg {
-  width: 28px;
-  height: 28px;
-}
-
-/* Mobile Nav Drawer */
-.mobile-nav-drawer {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  z-index: 2000;
-  opacity: 0;
-  visibility: hidden;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
   transition: var(--transition);
+  z-index: 1005;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.mobile-nav-drawer.open {
-  opacity: 1;
-  visibility: visible;
+.elementor-menu-toggle:hover,
+.elementor-menu-toggle:focus,
+.mobile-toggle:hover,
+.mobile-toggle:focus {
+  background-color: rgba(47, 84, 253, 0.08);
+  outline: none;
 }
 
-.mobile-drawer-content {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 300px;
-  max-width: 85%;
-  height: 100%;
-  background: #ffffff;
-  padding: 24px;
-  overflow-y: auto;
-  box-shadow: -4px 0 16px rgba(0, 0, 0, 0.15);
-  transform: translateX(100%);
-  transition: transform 0.3s ease;
-}
-
-.mobile-nav-drawer.open .mobile-drawer-content {
-  transform: translateX(0);
-}
-
-.mobile-drawer-header {
+.elementor-menu-toggle__icon {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 24px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--border-color);
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  position: relative;
 }
 
-.mobile-close-btn {
-  background: none;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-  color: var(--text-main);
+.elementor-menu-toggle__icon svg {
+  width: 26px;
+  height: 26px;
+  fill: var(--primary-color);
+  pointer-events: none;
+  transition: transform 0.25s ease, opacity 0.2s ease;
 }
 
-.mobile-nav-list {
+.elementor-menu-toggle__icon--open {
+  display: flex;
+}
+
+.elementor-menu-toggle__icon--close {
+  display: none;
+}
+
+/* Active State for Elementor Toggle */
+.elementor-menu-toggle.elementor-active .elementor-menu-toggle__icon--open,
+.mobile-toggle.elementor-active .elementor-menu-toggle__icon--open {
+  display: none;
+}
+
+.elementor-menu-toggle.elementor-active .elementor-menu-toggle__icon--close,
+.mobile-toggle.elementor-active .elementor-menu-toggle__icon--close {
+  display: flex;
+}
+
+.elementor-menu-toggle.elementor-active .elementor-menu-toggle__icon--close svg,
+.mobile-toggle.elementor-active .elementor-menu-toggle__icon--close svg {
+  transform: rotate(90deg);
+}
+
+/* Elementor Dropdown Menu Container (Drops down right below header) */
+.elementor-nav-menu--dropdown {
+  display: none;
+  width: 100%;
+  background: #ffffff;
+  border-top: 1px solid var(--border-color);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  padding: 16px 20px 24px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  max-height: calc(100vh - 80px);
+  max-height: calc(100dvh - 80px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.elementor-nav-menu--dropdown.elementor-active {
+  display: block !important;
+  animation: elementorMenuSlideDown 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes elementorMenuSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.elementor-nav-menu--dropdown .elementor-nav-menu {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.mobile-nav-item {
-  border-bottom: 1px solid #edf2f7;
+.elementor-nav-menu--dropdown .menu-item {
+  border-bottom: 1px solid #f1f5f9;
+  position: relative;
+  margin-bottom: 0;
 }
 
-.mobile-nav-link {
+.elementor-nav-menu--dropdown .elementor-item-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 0;
+}
+
+.elementor-nav-menu--dropdown .elementor-item {
+  display: block;
+  flex-grow: 1;
+  padding: 14px 4px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
+  font-size: 0.98rem;
   color: var(--primary-color);
-  font-size: 0.95rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
-.mobile-submenu {
+.elementor-nav-menu--dropdown .elementor-item:hover,
+.elementor-nav-menu--dropdown .current-menu-item > .elementor-item,
+.elementor-nav-menu--dropdown .current-menu-item > .elementor-item-wrapper > .elementor-item {
+  color: var(--secondary-color);
+}
+
+.elementor-nav-menu--dropdown .sub-arrow {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--primary-color);
+  transition: transform 0.25s ease, color 0.2s ease;
+  user-select: none;
+  border-radius: var(--radius-sm);
+}
+
+.elementor-nav-menu--dropdown .sub-arrow:hover {
+  background-color: #f8fafc;
+  color: var(--secondary-color);
+}
+
+.elementor-nav-menu--dropdown .sub-arrow svg {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.25s ease;
+}
+
+.elementor-nav-menu--dropdown .menu-item.active > .elementor-item-wrapper .sub-arrow svg,
+.elementor-nav-menu--dropdown .menu-item.active > .sub-arrow svg {
+  transform: rotate(180deg);
+}
+
+.elementor-nav-menu--dropdown .sub-menu {
   list-style: none;
-  padding-left: 16px;
+  padding: 4px 0 10px 14px;
+  margin: 0 0 8px 4px;
+  border-left: 2px solid var(--secondary-color);
   display: none;
-  padding-bottom: 10px;
 }
 
-.mobile-submenu.open {
-  display: block;
+.elementor-nav-menu--dropdown .menu-item.active > .sub-menu {
+  display: block !important;
+  animation: fadeIn 0.2s ease;
 }
 
-.mobile-submenu a {
+.elementor-nav-menu--dropdown .elementor-sub-item {
   display: block;
-  padding: 8px 0;
-  font-size: 0.9rem;
+  padding: 8px 12px;
+  font-family: 'Mulish', sans-serif;
+  font-size: 0.94rem;
+  font-weight: 600;
   color: #4a5568;
+  text-decoration: none;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.elementor-nav-menu--dropdown .elementor-sub-item:hover {
+  color: var(--secondary-color);
+  padding-left: 16px;
+}
+
+.elementor-mobile-cta {
+  margin-top: 22px;
+  padding-top: 8px;
+}
+
+.elementor-mobile-contact {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid #e2e8f0;
+  font-size: 0.88rem;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.elementor-mobile-contact a {
+  color: var(--primary-color);
+  font-weight: 700;
 }
 
 /* ==========================================================================
@@ -1648,11 +1758,12 @@ body.a11y-readable-font * {
 
 @media (max-width: 991px) {
   .main-nav, .header-cta {
-    display: none;
+    display: none !important;
   }
   
+  .elementor-menu-toggle,
   .mobile-toggle {
-    display: block;
+    display: flex !important;
   }
   
   .hero-title {

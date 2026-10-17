@@ -45,55 +45,55 @@
         <img src="assets/images/Accuvision-Logo-Navy-Blue-3.png" alt="Accuvision LASIK Charlotte Logo">
       </a>
 
-      <!-- Desktop Navigation -->
-      <nav class="main-nav" aria-label="Primary Navigation">
-        <ul class="nav-list">
-          <li class="nav-item ">
-            <a href="index.html" class="nav-link">Home</a>
+      <!-- Desktop Navigation (WordPress / Elementor compatible) -->
+      <nav class="main-nav elementor-nav-menu--main" aria-label="Primary Navigation">
+        <ul class="nav-list elementor-nav-menu">
+          <li class="nav-item menu-item ">
+            <a href="index.html" class="nav-link elementor-item">Home</a>
           </li>
 
           <!-- LASIK Dropdown -->
-          <li class="nav-item active">
-            <a href="why-lasik.html" class="nav-link">
+          <li class="nav-item menu-item menu-item-has-children current-menu-item active">
+            <a href="why-lasik.html" class="nav-link elementor-item">
               LASIK
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </a>
-            <ul class="dropdown-menu">
-              <li class="dropdown-item"><a href="why-lasik.html">Why LASIK?</a></li>
-              <li class="dropdown-item"><a href="are-you-a-lasik-candidate.html">Are You a LASIK Candidate?</a></li>
-              <li class="dropdown-item"><a href="patient-experience.html">The Patient Experience</a></li>
-              <li class="dropdown-item"><a href="lasik-pricing.html">LASIK Pricing</a></li>
-              <li class="dropdown-item"><a href="lasik-faq.html">LASIK FAQ</a></li>
+            <ul class="dropdown-menu sub-menu">
+              <li class="dropdown-item menu-item"><a href="why-lasik.html" class="elementor-sub-item">Why LASIK?</a></li>
+              <li class="dropdown-item menu-item"><a href="are-you-a-lasik-candidate.html" class="elementor-sub-item">Are You a LASIK Candidate?</a></li>
+              <li class="dropdown-item menu-item"><a href="patient-experience.html" class="elementor-sub-item">The Patient Experience</a></li>
+              <li class="dropdown-item menu-item"><a href="lasik-pricing.html" class="elementor-sub-item">LASIK Pricing</a></li>
+              <li class="dropdown-item menu-item"><a href="lasik-faq.html" class="elementor-sub-item">LASIK FAQ</a></li>
             </ul>
           </li>
 
           <!-- Reviews -->
-          <li class="nav-item ">
-            <a href="reviews.html" class="nav-link">Reviews</a>
+          <li class="nav-item menu-item ">
+            <a href="reviews.html" class="nav-link elementor-item">Reviews</a>
           </li>
 
           <!-- About Us Dropdown -->
-          <li class="nav-item ">
-            <a href="about-us.html" class="nav-link">
+          <li class="nav-item menu-item menu-item-has-children ">
+            <a href="about-us.html" class="nav-link elementor-item">
               About Us
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </a>
-            <ul class="dropdown-menu">
-              <li class="dropdown-item"><a href="about-us.html">About Accuvision</a></li>
-              <li class="dropdown-item"><a href="dr-william-h-hammonds.html">Dr. William H. Hammonds</a></li>
-              <li class="dropdown-item"><a href="dr-mary-j-rauch.html">Dr. Mary J. Rauch</a></li>
+            <ul class="dropdown-menu sub-menu">
+              <li class="dropdown-item menu-item"><a href="about-us.html" class="elementor-sub-item">About Accuvision</a></li>
+              <li class="dropdown-item menu-item"><a href="dr-william-h-hammonds.html" class="elementor-sub-item">Dr. William H. Hammonds</a></li>
+              <li class="dropdown-item menu-item"><a href="dr-mary-j-rauch.html" class="elementor-sub-item">Dr. Mary J. Rauch</a></li>
             </ul>
           </li>
 
           <!-- Contact Dropdown -->
-          <li class="nav-item ">
-            <a href="contact-us.html" class="nav-link">
+          <li class="nav-item menu-item menu-item-has-children ">
+            <a href="contact-us.html" class="nav-link elementor-item">
               Contact
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
             </a>
-            <ul class="dropdown-menu">
-              <li class="dropdown-item"><a href="contact-us.html">Contact Us</a></li>
-              <li class="dropdown-item"><a href="schedule-consultation.html">Scheduling</a></li>
+            <ul class="dropdown-menu sub-menu">
+              <li class="dropdown-item menu-item"><a href="contact-us.html" class="elementor-sub-item">Contact Us</a></li>
+              <li class="dropdown-item menu-item"><a href="schedule-consultation.html" class="elementor-sub-item">Scheduling</a></li>
             </ul>
           </li>
         </ul>
@@ -103,58 +103,80 @@
         <a href="schedule-consultation.html" class="btn btn-primary btn-pill">Free Consultation</a>
       </div>
 
-      <!-- Mobile Hamburger Toggle -->
-      <button class="mobile-toggle" aria-label="Toggle Navigation Menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      <!-- WordPress / Elementor Style Mobile Menu Toggle -->
+      <button class="elementor-menu-toggle mobile-toggle" id="elementor-menu-toggle" aria-label="Menu" aria-expanded="false" role="button">
+        <span class="elementor-menu-toggle__icon elementor-menu-toggle__icon--open">
+          <svg viewBox="0 0 1000 1000" fill="currentColor">
+            <path d="M104 333H896C929 333 958 304 958 271S929 208 896 208H104C71 208 42 237 42 271S71 333 104 333ZM104 583H896C929 583 958 554 958 521S929 458 896 458H104C71 458 42 487 42 521S71 583 104 583ZM104 833H896C929 833 958 804 958 771S929 708 896 708H104C71 708 42 737 42 771S71 833 104 833Z"/>
+          </svg>
+        </span>
+        <span class="elementor-menu-toggle__icon elementor-menu-toggle__icon--close">
+          <svg viewBox="0 0 1000 1000" fill="currentColor">
+            <path d="M742 167L500 408 258 167C246 154 233 150 217 150 196 150 179 158 167 167 154 179 150 196 150 212 150 229 154 242 171 254L408 500 167 742C154 754 150 771 150 787 150 804 154 821 167 833 179 846 196 850 212 850 229 850 246 846 258 833L500 592 742 833C754 846 771 850 787 850 804 850 821 846 833 833 846 821 850 804 850 787 850 771 846 754 833 742L592 500 833 258C846 246 850 229 850 212 850 196 846 179 833 167 821 154 804 150 787 150 771 150 754 154 742 167Z"/>
+          </svg>
+        </span>
       </button>
     </div>
-  </header>
 
-  <!-- Mobile Drawer -->
-  <div class="mobile-nav-drawer" id="mobile-drawer">
-    <div class="mobile-drawer-content">
-      <div class="mobile-drawer-header">
-        <img src="assets/images/Accuvision-Logo-Navy-Blue-3.png" alt="Accuvision Logo" style="height: 38px;">
-        <button class="mobile-close-btn" aria-label="Close menu">&times;</button>
-      </div>
-      <ul class="mobile-nav-list">
-        <li class="mobile-nav-item"><a href="index.html" class="mobile-nav-link">Home</a></li>
-        <li class="mobile-nav-item mobile-has-submenu">
-          <a href="#" class="mobile-nav-link">LASIK <span>&#9662;</span></a>
-          <ul class="mobile-submenu">
-            <li><a href="why-lasik.html">Why LASIK?</a></li>
-            <li><a href="are-you-a-lasik-candidate.html">Are You a LASIK Candidate?</a></li>
-            <li><a href="patient-experience.html">The Patient Experience</a></li>
-            <li><a href="lasik-pricing.html">LASIK Pricing</a></li>
-            <li><a href="lasik-faq.html">LASIK FAQ</a></li>
+    <!-- WordPress / Elementor Style Mobile Dropdown Menu -->
+    <nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" id="elementor-nav-menu-mobile" aria-hidden="true">
+      <ul class="elementor-nav-menu">
+        <li class="menu-item ">
+          <a href="index.html" class="elementor-item">Home</a>
+        </li>
+        <li class="menu-item menu-item-has-children current-menu-item active">
+          <div class="elementor-item-wrapper">
+            <a href="why-lasik.html" class="elementor-item">LASIK</a>
+            <span class="sub-arrow" role="button" aria-label="Toggle submenu" tabindex="0">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </div>
+          <ul class="sub-menu elementor-nav-menu--dropdown">
+            <li class="menu-item"><a href="why-lasik.html" class="elementor-sub-item">Why LASIK?</a></li>
+            <li class="menu-item"><a href="are-you-a-lasik-candidate.html" class="elementor-sub-item">Are You a LASIK Candidate?</a></li>
+            <li class="menu-item"><a href="patient-experience.html" class="elementor-sub-item">The Patient Experience</a></li>
+            <li class="menu-item"><a href="lasik-pricing.html" class="elementor-sub-item">LASIK Pricing</a></li>
+            <li class="menu-item"><a href="lasik-faq.html" class="elementor-sub-item">LASIK FAQ</a></li>
           </ul>
         </li>
-        <li class="mobile-nav-item"><a href="reviews.html" class="mobile-nav-link">Reviews</a></li>
-        <li class="mobile-nav-item mobile-has-submenu">
-          <a href="#" class="mobile-nav-link">About Us <span>&#9662;</span></a>
-          <ul class="mobile-submenu">
-            <li><a href="about-us.html">About Accuvision</a></li>
-            <li><a href="dr-william-h-hammonds.html">Dr. William H. Hammonds</a></li>
-            <li><a href="dr-mary-j-rauch.html">Dr. Mary J. Rauch</a></li>
+        <li class="menu-item ">
+          <a href="reviews.html" class="elementor-item">Reviews</a>
+        </li>
+        <li class="menu-item menu-item-has-children ">
+          <div class="elementor-item-wrapper">
+            <a href="about-us.html" class="elementor-item">About Us</a>
+            <span class="sub-arrow" role="button" aria-label="Toggle submenu" tabindex="0">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </div>
+          <ul class="sub-menu elementor-nav-menu--dropdown">
+            <li class="menu-item"><a href="about-us.html" class="elementor-sub-item">About Accuvision</a></li>
+            <li class="menu-item"><a href="dr-william-h-hammonds.html" class="elementor-sub-item">Dr. William H. Hammonds</a></li>
+            <li class="menu-item"><a href="dr-mary-j-rauch.html" class="elementor-sub-item">Dr. Mary J. Rauch</a></li>
           </ul>
         </li>
-        <li class="mobile-nav-item mobile-has-submenu">
-          <a href="#" class="mobile-nav-link">Contact <span>&#9662;</span></a>
-          <ul class="mobile-submenu">
-            <li><a href="contact-us.html">Contact Us</a></li>
-            <li><a href="schedule-consultation.html">Scheduling</a></li>
+        <li class="menu-item menu-item-has-children ">
+          <div class="elementor-item-wrapper">
+            <a href="contact-us.html" class="elementor-item">Contact</a>
+            <span class="sub-arrow" role="button" aria-label="Toggle submenu" tabindex="0">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </div>
+          <ul class="sub-menu elementor-nav-menu--dropdown">
+            <li class="menu-item"><a href="contact-us.html" class="elementor-sub-item">Contact Us</a></li>
+            <li class="menu-item"><a href="schedule-consultation.html" class="elementor-sub-item">Scheduling</a></li>
           </ul>
         </li>
       </ul>
-      <div style="margin-top: 30px;">
-        <a href="schedule-consultation.html" class="btn btn-primary" style="width: 100%; text-align: center;">Free Consultation</a>
+      <div class="elementor-mobile-cta">
+        <a href="schedule-consultation.html" class="btn btn-primary btn-pill" style="width: 100%;">Free Consultation</a>
       </div>
-      <div style="margin-top: 25px; font-size: 0.9rem; color: #64748b; line-height: 1.5;">
+      <div class="elementor-mobile-contact">
         <p><strong>Call Us:</strong> <a href="tel:+17047652745">(704) 765-2745</a></p>
-        <p>10616 Metromont Pkwy, Ste 102<br>Charlotte, NC 28269</p>
+        <p>10616 Metromont Pkwy, Ste 102, Charlotte, NC 28269</p>
       </div>
-    </div>
-  </div>
+    </nav>
+  </header>
 
 
 
